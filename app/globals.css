@@ -1,33 +1,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.bg-grid-xsm {
+  background-size: 5px 5px;
+  background-image: linear-gradient(to right, #ffffff0b 0.5px, transparent 0.5px), linear-gradient(to bottom, #ffffff0b 0.5px, transparent 0.5px);
+}
+.bg-grid {
+  background-size: 10px 10px;
+  background-image: linear-gradient(to right, #cccccc23 0.5px, transparent 0.5px), linear-gradient(to bottom, #cccccc23 0.5px, transparent 0.5px);
+}
+
+.bg-grid-md {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, #3030314a 0.5px, transparent 0.5px), linear-gradient(to bottom, #3030314a 0.5px, transparent 0.5px);
+}
+
+.bg-grid-lg{
+  background-size: 60px 60px;
+  background-image: linear-gradient(to right, #3030314a 0.5px, transparent 0.5px), linear-gradient(to bottom, #3030314a 0.5px, transparent 0.5px);
+  animation: moveGrid 5s linear infinite;
+}
+
+@keyframes moveGrid {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 60px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes pulseGrid {
+  0%, 100% {
+    background-color: rgba(48, 48, 49, 0.3);
+  }
+  50% {
+    background-color: rgba(48, 48, 49, 0.7);
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@keyframes scaleGrid {
+  0%, 100% {
+    background-size: 60px 60px;
+  }
+  50% {
+    background-size: 80px 80px;
   }
 }
